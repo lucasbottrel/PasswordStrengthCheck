@@ -1,52 +1,34 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Página de Cadastro</title>
-</head>
-<body>
-    <h1>Cadastro</h1>
-    <form id="cadastroForm">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        <br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        <br>
-        <button type="button" onclick="salvarCadastro()">Salvar</button>
-    </form>
-
-    <script>
-        function salvarCadastro() {
-            var nome = document.getElementById("nome").value;
-            var senha = document.getElementById("senha").value;
-
-            // Cria o objeto JSON com os campos nome e senha
-            var data = {
-                nome: nome,
-                senha: senha
-            };
-
-            console.log(data)
-
-            // Realiza a chamada POST para o endpoint usando o formato JSON
-            fetch('http://localhost:8080/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin':'*'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Processa a resposta do servidor, se necessário
-                console.log('Resposta do servidor:', data);
-            })
-            .catch(error => {
-                // Lida com erros na chamada
-                console.error('Erro na chamada ao servidor:', error);
-            });
-        }
-    </script>
-</body>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8" />
+        <title>Medidor de Qualidade de Senha</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="viewport">
+            <div class="cadastro">
+                <form id="cadastroForm">
+                    <div class="nameContainer">
+                        <label for="nome">Nome</label>
+                        <input class="nameInput" type="text" id="nome" name="nome" required />
+                    </div>
+                    <div class="passwordContainer">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" required />
+                    </div>
+                    <button class="saveButton" type="button" onclick="salvarCadastro()">Salvar</button>
+                </form>
+            </div>
+            <div class="passwordInfo">
+                <table id="dados-table">
+                    
+                </table>
+            </div>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8" /></head
+    ><head></head>
+    <body>
+        <title>Combos de Chefes e Subordinados</title>
+
+        <h1>Selecione o Chefe e o Subordinado:</h1>
+        <label for="comboChefes">Chefe:</label>
+        <select id="comboChefes">
+            <!-- Options serão preenchidos dinamicamente -->
+        </select>
+
+        <br />
+
+        <label for="comboSubordinados">Subordinado:</label>
+        <select id="comboSubordinados">
+            <!-- Options serão preenchidos dinamicamente -->
+        </select>
+
+        <br />
+
+        <button onclick="salvarAssociacao()">Salvar</button>
+
+        <script>
+            // Função para buscar os dados JSON da URL
+            function buscarDados() {
+                fetch("http://localhost:8080/")
+                    .then((response) => response.json())
+                    .then((data) => preencherCombos(data))
+                    .catch((error) =>
+                        console.error("Erro ao buscar dados:", error)
+                    );
+            }
+
+            // Função para preencher os combos com os dados
+            function preencherCombos(dados) {
+                const comboChefes = document.getElementById("comboChefes");
+                const comboSubordinados =
+                    document.getElementById("comboSubordinados");
+
+                dados.forEach((dado) => {
+                    const optionChefe = document.createElement("option");
+                    optionChefe.value = dado.id;
+                    optionChefe.textContent = dado.nome;
+                    comboChefes.appendChild(optionChefe);
+
+                    const optionSubordinado = document.createElement("option");
+                    optionSubordinado.value = dado.id;
+                    optionSubordinado.textContent = dado.nome;
+                    comboSubordinados.appendChild(optionSubordinado);
+                });
+            }
+
+            // Função para salvar a associação de chefe e subordinado
+            function salvarAssociacao() {
+                const idChefe = document.getElementById("comboChefes").value;
+                const idSubordinado =
+                    document.getElementById("comboSubordinados").value;
+
+                const data = {
+                    idBoss: parseInt(idChefe),
+                    idSubordinate: parseInt(idSubordinado),
+                };
+
+                fetch("http://localhost:8080/associateBoss", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            alert("Associação salva com sucesso!");
+                        } else {
+                            alert(
+                                "Erro ao salvar associação. Verifique o console para mais detalhes."
+                            );
+                            console.error(
+                                "Erro ao salvar associação:",
+                                response
+                            );
+                        }
+                    })
+                    .catch((error) => {
+                        alert(
+                            "Erro ao salvar associação. Verifique o console para mais detalhes."
+                        );
+                        console.error("Erro ao salvar associação:", error);
+                    });
+            }
+
+            // Chamar a função para buscar os dados e preencher os combos
+            buscarDados();
+        </script>
+    </body>
+</html>

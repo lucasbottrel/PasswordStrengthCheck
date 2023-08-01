@@ -1,0 +1,87 @@
+:root {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(270deg, #060623, #08082d);
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.viewport{
+
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+.cadastro, .passwordInfo{
+    padding: 3%;
+}
+
+.cadastroForm{
+    width: 100%;
+}
+
+form {
+    display: flex;
+    width: 60%;
+    gap: 5%;
+    height: 100%;
+
+    .nameContainer, .passwordContainer{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+    }
+}
+
+input {
+    height: 30px;
+    font-size: 20px;
+    outline: none
+}
+
+input:focus {
+    border: 2px solid #00e5ff;
+}
+
+table {
+    width: 100%;
+    line-height: 60px;
+    border-collapse: collapse; /* Combina as bordas das células para evitar espaços entre elas */
+}
+
+th {
+    border: 1px solid rgb(255, 255, 255); /* Adiciona bordas às células */
+    padding: 8px; /* Adiciona um espaçamento interno às células */
+}
+
+tr:not(:last-child) {
+    border-bottom: 2px solid rgb(255, 255, 255); /* Adiciona uma linha separadora após todas as linhas exceto a última */
+}
+
+.saveButton{
+    width: 30%;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    /* height: 80% !important; */
+    background: #00e5ff;
+}
+
+.divComplexidade{
+    background-color: gray;
+    width: 40%;
+    border-radius: 8px;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+}
