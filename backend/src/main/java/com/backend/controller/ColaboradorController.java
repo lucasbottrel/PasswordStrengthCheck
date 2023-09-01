@@ -30,7 +30,7 @@ public class ColaboradorController {
 	}
 	
 	@PostMapping
-	public ColaboradorEntity post(@RequestBody ColaboradorEntity colaboradorEntity) {
+	public ColaboradorEntity post(@RequestBody ColaboradorEntity colaboradorEntity) throws Exception{
 		return colaboradorBusiness.save(colaboradorEntity);
 	}
 	
