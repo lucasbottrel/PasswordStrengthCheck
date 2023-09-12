@@ -18,13 +18,18 @@ export class CadastroComponent implements OnInit {
   };
 
   ngOnInit(): void {
+
   }
 
   onSubmit(): void {
     console.warn(this.user);
-    this.ApiService.addCadastro(this.user.name, this.user.password).subscribe((data) => {
-      console.log(data);
-    });
+
+    if (this.user.name != '' && this.user.password != '') {
+      this.ApiService.addCadastro(this.user.name, this.user.password).subscribe((data) => {
+        console.log(data);
+      });
+    } else alert('Preencha os campos corretamente!');
+
   }
 
 }

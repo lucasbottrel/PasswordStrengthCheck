@@ -1,1 +1,13 @@
-<app-cadastro></app-cadastro>
+<mat-toolbar color="primary">
+  <span>Colaboradory </span>
+  <button routerLink="/cadastro" (click)="selectedTab = 'cadastro'" [ngClass]="{'selectedButton': selectedTab == 'cadastro'}">
+    Cadastro
+  </button>
+  <button routerLink="/listar" (click)="selectedTab = 'list'" [ngClass]="{'selectedButton': selectedTab == 'list'}" >
+    Listar
+  </button>
+  <button routerLink="/supervisor" (click)="selectedTab = 'supervisor'" [ngClass]="{'selectedButton': selectedTab == 'supervisor'}">
+    Atribuir Supervisor
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>

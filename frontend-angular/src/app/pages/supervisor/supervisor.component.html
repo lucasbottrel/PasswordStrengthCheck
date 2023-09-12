@@ -1,0 +1,25 @@
+<h1>Associa Chefe</h1>
+
+<form action="">
+  <mat-form-field >
+    <mat-label>Subordinado</mat-label>
+    <mat-select name="colaborador" [(ngModel)]="subordinado">
+      <mat-option *ngFor="let colaborador of colaboradorList" [value]="colaborador.id">
+        {{colaborador.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-label>Chefe</mat-label>
+    <mat-select name="chefe" [(ngModel)]="chefe">
+      <mat-option *ngFor="let colaborador of colaboradorList" [value]="colaborador.id">
+        {{colaborador.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <button type="submit" class="btn btn-primary save" (click)="onSubmit()">Associar</button>
+</form>

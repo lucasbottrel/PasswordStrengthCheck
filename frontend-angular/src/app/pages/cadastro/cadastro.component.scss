@@ -1,0 +1,71 @@
+h1{
+  margin-left: 5%;
+  font-size: 3vh;
+  color: #3F51B5;
+  margin-top: 2%;
+}
+
+form {
+  margin-left: 5%;
+  font-size: 2vh;
+  margin-top: 3%;
+}
+
+.save {
+  background-color: #3F51B5;
+  color: white;
+  font-size: 2.5vh;
+  border-radius: 5px;
+  /* width: 10%; */
+  border: none;
+  margin-top: 2%;
+  cursor: pointer;
+  padding: 1% 10%;
+}
+
+.save:hover{
+  background-color: #2b3b96;
+}
+
+input {
+  font-size: 2vh;
+  margin: 1%;
+  border-radius: 8px;
+  outline: none !important;
+  border: 2px solid #ababab;
+  height: 3vh;
+  width: 30vh;
+  color: #ababab;
+  padding: 1%;
+}
+
+label {
+  background: #3F51B5;
+    color: white;
+    /* font-weight: bold; */
+    padding: 0.3vh 5vh;
+    border-radius: 5px;
+}
+
+input:focus {
+  outline: none !important;
+  border:2px solid #3F51B5;
+  color: #3F51B5;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+input:hover {
+  outline: none !important;
+  border:2px solid #3F51B5;
+  color: #3F51B5;
+}
+
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+input:hover::-webkit-input-placeholder {
+  color: #3F51B5;
+}
+
+

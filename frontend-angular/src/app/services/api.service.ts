@@ -11,23 +11,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/posts`);
+  getUserList(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}`);
   }
 
-  getPostById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/posts/${id}`);
+  associateBoss(idChefe: number, idSubordinado: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}associateBoss`, { "idBoss": idChefe, "idSubordinate": idSubordinado });
   }
 
   addCadastro(user: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, { "nome": user, "senha": password });
-  }
-
-  updatePost(id: number, post: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/posts/${id}`, post);
-  }
-
-  deletePost(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/posts/${id}`);
   }
 }
