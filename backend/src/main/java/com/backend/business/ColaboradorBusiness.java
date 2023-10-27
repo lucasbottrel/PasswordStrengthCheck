@@ -46,12 +46,15 @@ public class ColaboradorBusiness {
 
 	public ColaboradorEntity associateBoss(BossSubordinateDTO bossSubordinateDTO) {
 
-		ColaboradorEntity boss = colaboradorRepository.findById(bossSubordinateDTO.getIdBoss()).get();
 		ColaboradorEntity subordinate = colaboradorRepository.findById(bossSubordinateDTO.getIdSubordinate()).get();
+		ColaboradorEntity boss = colaboradorRepository.findById(bossSubordinateDTO.getIdBoss()).get();
+		
+		if (!subordinate.getId().equals(boss.getId())) {
 
-		subordinate.setChefe(boss);
+			subordinate.setChefe(boss);
 
-		colaboradorRepository.save(subordinate);
+			colaboradorRepository.save(subordinate);
+		}
 
 		return subordinate;
 	}
