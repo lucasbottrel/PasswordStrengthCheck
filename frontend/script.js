@@ -1,6 +1,6 @@
 // Função para buscar os dados JSON da URL
 function buscarDados() {
-    fetch("http://localhost:8080/")
+    fetch("http://3.19.171.39:8080/")
         .then((response) => response.json())
         .then((data) => exibirDados(data))
         .catch((error) =>
@@ -60,7 +60,7 @@ function salvarCadastro() {
     };
 
     // Realiza a chamada POST para o endpoint usando o formato JSON
-    fetch("http://localhost:8080/", {
+    fetch("http://3.19.171.39:8080/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -36,7 +36,7 @@
     <script>
         // Função para buscar os dados JSON da URL
         function buscarDados() {
-            fetch('http://localhost:8080/')
+            fetch('http://3.19.171.39:8080/')
                 .then(response => response.json())
                 .then(data => exibirDados(data))
                 .catch(error => console.error('Erro ao buscar dados:', error));

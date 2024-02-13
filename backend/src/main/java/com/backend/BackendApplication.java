@@ -5,13 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
-import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
+//import org.springframework.amqp.core.Binding;
+//import org.springframework.amqp.core.BindingBuilder;
+//import org.springframework.amqp.core.Queue;
+//import org.springframework.amqp.core.TopicExchange;
+//import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+//import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
+//import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 
 @SpringBootApplication
 public class BackendApplication {
@@ -33,7 +33,7 @@ public class BackendApplication {
 			}
 		};
 	}
-
+/*
 	@Bean
 	Queue queue() {
 		return new Queue(queueName, false);
@@ -56,4 +56,5 @@ public class BackendApplication {
 		container.setQueueNames(queueName);
 		return container;
 	}
+*/
 }

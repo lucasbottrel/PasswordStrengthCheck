@@ -26,7 +26,7 @@
         <script>
             // Função para buscar os dados JSON da URL
             function buscarDados() {
-                fetch("http://localhost:8080/")
+                fetch("http://3.19.171.39:8080/")
                     .then((response) => response.json())
                     .then((data) => preencherCombos(data))
                     .catch((error) =>
@@ -64,7 +64,7 @@
                     idSubordinate: parseInt(idSubordinado),
                 };
 
-                fetch("http://localhost:8080/associateBoss", {
+                fetch("http://3.19.171.39:8080/associateBoss", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
